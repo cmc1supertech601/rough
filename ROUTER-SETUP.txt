@@ -1,0 +1,48 @@
+═══════════════════════════════════════════════════════
+ROUTER PORT FORWARDING SETUP
+═══════════════════════════════════════════════════════
+
+ISSUE: Port forwarding is not configured on your router.
+
+QUICK FIX STEPS:
+────────────────
+
+1. Access Router Admin:
+   Open browser: http://192.168.2.1
+   (If that doesn't work, try: http://192.168.1.1 or http://192.168.0.1)
+
+2. Login:
+   Use admin credentials (often on router sticker)
+
+3. Find Port Forwarding:
+   Look for: "Port Forwarding", "Virtual Server", 
+   "NAT Forwarding", or "Firewall" → "Port Forwarding"
+
+4. Add New Rule:
+   ┌─────────────────────────────────────────┐
+   │ Service/Name:  SNS Automation           │
+   │ External Port: 8080                     │
+   │ Internal IP:   192.168.2.12            │
+   │ Internal Port: 8000                     │
+   │ Protocol:      TCP                     │
+   │ Status:        Enabled                 │
+   └─────────────────────────────────────────┘
+
+5. Save Settings:
+   Click "Save" or "Apply"
+   Router may restart (wait 1-2 minutes)
+
+6. Test:
+   After router restarts, test:
+   http://snsautomation.duckdns.org:8080
+   OR
+   http://207.161.65.171:8080
+
+═══════════════════════════════════════════════════════
+ALTERNATIVE: Use Tunnel (No Router Config Needed)
+═══════════════════════════════════════════════════════
+
+Run: ./fix-internet-access.sh
+Choose option 2 for immediate access via tunnel.
+
+═══════════════════════════════════════════════════════
